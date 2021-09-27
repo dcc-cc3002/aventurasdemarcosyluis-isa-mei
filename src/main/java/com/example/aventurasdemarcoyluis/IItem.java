@@ -1,5 +1,8 @@
 package com.example.aventurasdemarcoyluis;
 
+/**
+ * Interface for the item, each one has to implement it
+ */
 public interface IItem {
 
     /**
