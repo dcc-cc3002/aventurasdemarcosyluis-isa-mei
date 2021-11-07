@@ -10,5 +10,5 @@ public interface IItem {
      * is going to use
      * @param player the one that uses an item
      */
-    void usage(Players player);
+    void usage(AbstractPlayers player);
 }

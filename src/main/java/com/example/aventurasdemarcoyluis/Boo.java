@@ -3,7 +3,7 @@ package com.example.aventurasdemarcoyluis;
 /**
  * Subclass of AbstractEnemies. Represents a Boo in the game
  */
-public class Boo extends AbstractEnemies{
+public class Boo extends AbstractEnemies implements AttackedByMarcos{
     /**
      * Creates a new Boo Enemy
      *
@@ -16,4 +16,17 @@ public class Boo extends AbstractEnemies{
         super(ATK, DEF, HP, LVL);
     }
 
+    public void attack(Luis luis){
+        super.attack(luis);
+    }
+
+    @Override
+    public void attackedByMarcosJump(Marcos marcos) {
+        receiveDamage(marcos.jump(this));
+    }
+
+    @Override
+    public void attackedByMarcosHammer(Marcos marcos) {
+        receiveDamage(0);
+    }
 }

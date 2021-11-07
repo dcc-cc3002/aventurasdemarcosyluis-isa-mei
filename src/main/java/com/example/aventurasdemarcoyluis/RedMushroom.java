@@ -16,7 +16,7 @@ public class RedMushroom implements IItem{
      * @param player the one that uses an item
      */
     @Override
-    public void usage(Players player) {
+    public void usage(AbstractPlayers player) {
         int newHp = player.getHp() + player.getMaxHp()/10;
         player.changeHp(newHp);
 

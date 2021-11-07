@@ -3,7 +3,7 @@ package com.example.aventurasdemarcoyluis;
 /**
  * Subclass of AbstractEnemies. Represents a Goomba in the game
  */
-public class Goomba extends AbstractEnemies{
+public class Goomba extends AbstractEnemies implements AttackedByPlayers{
     /**
      * Creates a new Goomba Enemy
      *
@@ -16,4 +16,13 @@ public class Goomba extends AbstractEnemies{
         super(ATK, DEF, HP, LVL);
     }
 
+    @Override
+    public void attackedByPlayerJump(IPlayer player) {
+        receiveDamage(player.jump(this));
+    }
+
+    @Override
+    public void attackedByPlayerHammer(IPlayer player) {
+        receiveDamage(player.hammer(this));
+    }
 }

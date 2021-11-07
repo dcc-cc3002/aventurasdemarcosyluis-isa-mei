@@ -26,4 +26,9 @@ public interface ICharacter {
      */
     int getDef();
 
+    /**
+     * Gives the Character's heal points
+     * @return hp
+     */
+    int getHp();
 }

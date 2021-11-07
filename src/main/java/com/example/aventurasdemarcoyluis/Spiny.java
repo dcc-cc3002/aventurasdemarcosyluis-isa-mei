@@ -3,7 +3,7 @@ package com.example.aventurasdemarcoyluis;
 /**
  * Subclass of AbstractEnemies. Represents a Spiny in the game
  */
-public class Spiny extends AbstractEnemies{
+public class Spiny extends AbstractEnemies implements AttackedByPlayers{
     /**
      * Creates a new Enemy
      *
@@ -16,4 +16,14 @@ public class Spiny extends AbstractEnemies{
         super(ATK, DEF, HP, LVL);
     }
 
+    @Override
+    public void attackedByPlayerJump(IPlayer player) {
+        receiveDamage(0);
+        player.receiveDamage((int) (0.05* player.getHp()));
+    }
+
+    @Override
+    public void attackedByPlayerHammer(IPlayer player) {
+        receiveDamage(player.hammer(this));
+    }
 }
