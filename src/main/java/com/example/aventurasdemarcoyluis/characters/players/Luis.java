@@ -1,6 +1,7 @@
 package com.example.aventurasdemarcoyluis.characters.players;
 
 import com.example.aventurasdemarcoyluis.characters.enemies.Boo;
+import org.jetbrains.annotations.NotNull;
 
 /**
  * Subclass of AbstractPlayers. Class that represent Luis
@@ -25,7 +26,7 @@ public class Luis extends AbstractPlayers implements AttackedByBoo {
      * @param boo a boo
      */
     @Override
-    public void attackedByBoo(Boo boo) {
+    public void attackedByBoo(@NotNull Boo boo) {
         boo.attack(this);
     }
 }

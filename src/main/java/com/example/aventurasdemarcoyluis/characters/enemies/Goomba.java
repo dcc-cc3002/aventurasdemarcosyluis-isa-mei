@@ -1,6 +1,7 @@
 package com.example.aventurasdemarcoyluis.characters.enemies;
 
 import com.example.aventurasdemarcoyluis.characters.players.IPlayer;
+import org.jetbrains.annotations.NotNull;
 
 /**
  * Subclass of AbstractEnemies. Represents a Goomba in the game
@@ -23,7 +24,7 @@ public class Goomba extends AbstractEnemies implements AttackedByPlayers {
      * @param player a Player
      */
     @Override
-    public void attackedByPlayerJump(IPlayer player) {
+    public void attackedByPlayerJump(@NotNull IPlayer player) {
         receiveDamage(player.jump(this));
     }
 
@@ -32,7 +33,7 @@ public class Goomba extends AbstractEnemies implements AttackedByPlayers {
      * @param player a player
      */
     @Override
-    public void attackedByPlayerHammer(IPlayer player) {
+    public void attackedByPlayerHammer(@NotNull IPlayer player) {
         receiveDamage(player.hammer(this));
     }
 }

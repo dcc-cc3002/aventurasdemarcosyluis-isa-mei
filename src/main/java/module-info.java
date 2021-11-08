@@ -4,8 +4,6 @@ module com.example.aventurasdemarcoyluis {
     requires org.jetbrains.annotations;
 
 
-    opens com.example.aventurasdemarcoyluis to javafx.fxml;
-    //exports com.example.aventurasdemarcoyluis;
     exports com.example.aventurasdemarcoyluis.characters;
     opens com.example.aventurasdemarcoyluis.characters to javafx.fxml;
     exports com.example.aventurasdemarcoyluis.items;

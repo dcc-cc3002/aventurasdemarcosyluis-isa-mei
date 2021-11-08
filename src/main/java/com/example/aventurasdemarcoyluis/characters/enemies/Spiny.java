@@ -1,6 +1,7 @@
 package com.example.aventurasdemarcoyluis.characters.enemies;
 
 import com.example.aventurasdemarcoyluis.characters.players.IPlayer;
+import org.jetbrains.annotations.NotNull;
 
 /**
  * Subclass of AbstractEnemies. Represents a Spiny in the game
@@ -24,7 +25,7 @@ public class Spiny extends AbstractEnemies implements AttackedByPlayers {
      * @param player a Player
      */
     @Override
-    public void attackedByPlayerJump(IPlayer player) {
+    public void attackedByPlayerJump(@NotNull IPlayer player) {
         player.jump(this);
         receiveDamage(0);
         player.receiveDamage((int) (0.05* player.getHp()));
@@ -35,7 +36,7 @@ public class Spiny extends AbstractEnemies implements AttackedByPlayers {
      * @param player a player
      */
     @Override
-    public void attackedByPlayerHammer(IPlayer player) {
+    public void attackedByPlayerHammer(@NotNull IPlayer player) {
         receiveDamage(player.hammer(this));
     }
 }
