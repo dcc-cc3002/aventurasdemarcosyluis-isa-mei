@@ -32,7 +32,7 @@ public abstract class AbstractCharacter implements ICharacter {
      * Gives the Character's attack
      * @return atk
      */
-    protected int getAtk() { return this.atk ; }
+    public int getAtk() { return this.atk ; }
 
     /**
      * Gives the maximum value of heal points

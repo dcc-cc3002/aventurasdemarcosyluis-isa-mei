@@ -3,9 +3,15 @@ package com.example.aventurasdemarcoyluis.items;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Class to implement the share trunk that uses the Players to keep hte objets
+ */
 public class Baul {
     private final List<IItem> inventory;
 
+    /**
+     * Constructor to create a new Baul
+     */
     public Baul(){
         inventory = new ArrayList<>();
     }
@@ -14,7 +20,7 @@ public class Baul {
      * The item is added in the Players' inventory
      * @param anItem item to add
      */
-    protected void addItem(IItem anItem){
+    public void addItem(IItem anItem){
         inventory.add(anItem);
     }
 

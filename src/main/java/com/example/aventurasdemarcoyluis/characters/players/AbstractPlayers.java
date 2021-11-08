@@ -55,17 +55,17 @@ public abstract class AbstractPlayers extends AbstractCharacter
     /**
      * The Player went up a level, so its stats changes.
      */
-    protected void levelUp() {
+    public void levelUp() {
         double k = 0.15;
-        int newFp = (int) (getMaxFp()*k);
-        int newHp =  (int) (getMaxHp()*k);
+        int newFp = (int) (getMaxFp() + getMaxFp()*k);
+        int newHp =  (int) (getMaxHp() + getMaxHp()*k);
         this.setLvl(getLvl()+1);
         this.setMaxFp(newFp);
         this.setFp(newFp);
         this.setMaxHp(newHp);
         this.setHp(newHp);
-        this.setAtk((int) (getAtk()*k));
-        this.setDef((int) (getDef()*k));
+        this.setAtk((int) (getAtk() + getAtk()*k));
+        this.setDef((int) (getDef() + getDef()*k));
     }
 
     /**
@@ -116,7 +116,7 @@ public abstract class AbstractPlayers extends AbstractCharacter
      * @param item object that the Player is using
      */
     public void useItem(@NotNull Baul baul, IItem item){
-        if (baul.askForItem(item)){
+        if (baul.askForItem(item) & !(this.isKO())){
             item.usage(this);
             baul.removeItem(item);
         }
