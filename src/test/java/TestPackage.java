@@ -1,5 +1,12 @@
 
-import com.example.aventurasdemarcoyluis.*;
+import com.example.aventurasdemarcoyluis.characters.enemies.Boo;
+import com.example.aventurasdemarcoyluis.characters.enemies.Goomba;
+import com.example.aventurasdemarcoyluis.characters.enemies.Spiny;
+import com.example.aventurasdemarcoyluis.characters.players.Luis;
+import com.example.aventurasdemarcoyluis.characters.players.Marcos;
+import com.example.aventurasdemarcoyluis.items.HoneySyrup;
+import com.example.aventurasdemarcoyluis.items.IItem;
+import com.example.aventurasdemarcoyluis.items.RedMushroom;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -13,9 +20,8 @@ public class TestPackage {
     private Goomba testGoomba;
     private Boo testBoo;
     private Spiny testSpiny;
-    private Players testMarcos;
-    private Players testLuis;
-    private IItem testStar;
+    private Marcos testMarcos;
+    private Luis testLuis;
     private IItem testRedMushroom;
     private IItem testHoneySyrup;
 
@@ -25,9 +31,8 @@ public class TestPackage {
         testGoomba= new Goomba(2,4,15,8);
         testBoo = new Boo(5,9,3,8);
         testSpiny = new Spiny(4, 6, 20, 8);
-        testMarcos = new Players(7, 7, 10, 5, 4);
-        testLuis = new Players(5, 9, 11, 5, 5);
-        testStar = new Star();
+        testMarcos = new Marcos(7, 7, 10, 5, 4);
+        testLuis = new Luis(5, 9, 11, 5, 5);
         testRedMushroom = new RedMushroom();
         testHoneySyrup = new HoneySyrup();
     }
@@ -64,22 +69,23 @@ public class TestPackage {
         assertEquals(actualHpLuis, testLuis.getHp());
 
         //Test para mostrar el error. Se corregirá cuando se implemeten bien los ataques
-        int actualHpMarcos2 = testMarcos.getHp();
-        testLuis.attackJump(testMarcos);
-        assertNotEquals(actualHpMarcos2, testMarcos.getHp());
+        //int actualHpMarcos2 = testMarcos.getHp();
+        //testLuis.attackJump(testMarcos);
+        //assertNotEquals(actualHpMarcos2, testMarcos.getHp());
 
         //Marcos expend all his fp, so after that he cannot attack the enemy.
         testSpiny.attack(testMarcos);
-        testMarcos.attackJump(testSpiny);
-        testMarcos.attackJump(testSpiny);
-        testMarcos.attackJump(testSpiny);
-        testMarcos.attackJump(testSpiny);
+        testMarcos.jump(testSpiny);
+        testMarcos.jump(testSpiny);
+        testMarcos.jump(testSpiny);
+        testMarcos.jump(testSpiny);
         int actualHpSpiny = testSpiny.getHp();
         assertEquals(0, testMarcos.getFp());
-        testMarcos.attackJump(testSpiny);
+        testMarcos.jump(testSpiny);
         assertEquals(actualHpSpiny, testSpiny.getHp());
 
         //Spiny kills Marcos
+        testSpiny.attack(testMarcos);
         testSpiny.attack(testMarcos);
         assertTrue(testMarcos.isKO());
 
@@ -88,7 +94,7 @@ public class TestPackage {
     @Test
     public void testItems() {
         //test Honey Syrup
-        testLuis.attackJump(testGoomba);
+        testLuis.jump(testGoomba);
         int actualFpLuis = testLuis.getFp();
         testLuis.useItem(testHoneySyrup);
         assertNotEquals(actualFpLuis, testLuis.getFp());
@@ -100,9 +106,6 @@ public class TestPackage {
         testLuis.useItem(testRedMushroom);
         assertNotEquals(actualHpLuis, testLuis.getHp());
         assertEquals(testLuis.getMaxHp(), testLuis.getHp());
-
-        //"test" Star
-        testLuis.useItem(testStar);
 
     }
 }
