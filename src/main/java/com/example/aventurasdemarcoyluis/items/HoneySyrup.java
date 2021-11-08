@@ -14,6 +14,7 @@ public class HoneySyrup implements IItem {
     public HoneySyrup() {
     }
 
+
     /**
      * Restore 3 Fp of the player
      * @param player the one that uses an item

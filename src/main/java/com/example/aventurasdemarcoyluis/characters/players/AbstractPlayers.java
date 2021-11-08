@@ -3,15 +3,14 @@ package com.example.aventurasdemarcoyluis.characters.players;
 import com.example.aventurasdemarcoyluis.characters.*;
 import com.example.aventurasdemarcoyluis.characters.enemies.AttackedByPlayers;
 import com.example.aventurasdemarcoyluis.characters.enemies.IEnemy;
+import com.example.aventurasdemarcoyluis.items.Baul;
 import com.example.aventurasdemarcoyluis.items.IItem;
 import org.jetbrains.annotations.NotNull;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Random;
 
 /**
- * Class that represent a Player in the game
+ * Subclass of AbstractCharacter. Abstract class that represent a Player(Marcos & Luis) in the game
  *
  *  @author Isabella Meirone
  */
@@ -20,7 +19,6 @@ public abstract class AbstractPlayers extends AbstractCharacter
     private final Random random;
     private int fp;
     private int maxFp;
-    private final List<IItem> inventory;
 
     /**
      * Creates a new player
@@ -35,16 +33,39 @@ public abstract class AbstractPlayers extends AbstractCharacter
         super(ATK, DEF, HP, LVL);
         random = new Random();
         this.fp = this.maxFp = FP;
-        this.inventory = new ArrayList<>();
-
     }
 
+    /**
+     * Set the seed for the random number generator.
+     * The seed its set to obtain determinate series of integers
+     * @param seed number of the seed
+     */
     public void setSeed(long seed) {
         random.setSeed(seed);
     }
 
+    /**
+     * Gives a random integer number between 1 and 4
+     * @return random integer
+     */
     public int roll() {
         return random.nextInt(4)+1;
+    }
+
+    /**
+     * The Player went up a level, so its stats changes.
+     */
+    protected void levelUp() {
+        double k = 0.15;
+        int newFp = (int) (getMaxFp()*k);
+        int newHp =  (int) (getMaxHp()*k);
+        this.setLvl(getLvl()+1);
+        this.setMaxFp(newFp);
+        this.setFp(newFp);
+        this.setMaxHp(newHp);
+        this.setHp(newHp);
+        this.setAtk((int) (getAtk()*k));
+        this.setDef((int) (getDef()*k));
     }
 
     /**
@@ -70,6 +91,12 @@ public abstract class AbstractPlayers extends AbstractCharacter
     }
 
     /**
+     * Modify the value of the Players' maxFp
+     * @param maxFp new maxFp
+     */
+    private void setMaxFp(int maxFp) { this.maxFp = maxFp; }
+
+    /**
      * Modify the value of Fp making sure to stay in the valid values
      * @param fp new fight points
      */
@@ -82,35 +109,48 @@ public abstract class AbstractPlayers extends AbstractCharacter
         }
     }
 
-    /**
-     * The item is added in the Players' inventory
-     * @param a item
-     */
-    public void addAItem(IItem a){
-        inventory.add(a);
-    }
 
     /**
-     * The Player makes use of an item
+     * The Player makes use of an item, so its remove from the inventory
+     * @param baul share trunk that contains the item for the PLayer
      * @param item object that the Player is using
      */
-    public void useItem(IItem item){
-        item.usage(this);
+    public void useItem(@NotNull Baul baul, IItem item){
+        if (baul.askForItem(item)){
+            item.usage(this);
+            baul.removeItem(item);
+        }
     }
 
-    public boolean cannotAttack(){
+    /**
+     * Ask if the Player is dead or has not had fp to attack
+     * @return true if player cannot attack, false if it can
+     */
+    private boolean cannotAttack(){
         return this.isKO() || this.getFp()==0 ;
     }
 
-
+    /**
+     * Use Double dispatch to attack an enemy(Goomba, Spiny) with a jump
+     * @param enemy Goomba or Spiny
+     */
     public void attackJump(@NotNull AttackedByPlayers enemy){
         enemy.attackedByPlayerJump(this);
     }
 
+    /**
+     * Use Double dispatch to attack an enemy(Goomba, Spiny) with the hammer
+     * @param enemy Goomba or Spiny
+     */
     public void attackHammer(@NotNull AttackedByPlayers enemy){
         enemy.attackedByPlayerHammer(this);
     }
 
+    /**
+     * Gives the value of the damage made by attacking with jump
+     * @param enemy enemy to attack
+     * @return damage by jump
+     */
     @Override
     public int jump(IEnemy enemy) {
         if (this.cannotAttack()) {
@@ -123,6 +163,11 @@ public abstract class AbstractPlayers extends AbstractCharacter
         }
     }
 
+    /**
+     * Gives the value of the damage made by attacking with hammer
+     * @param enemy enemy to attack
+     * @return damage by hammer
+     */
     @Override
     public int hammer(IEnemy enemy) {
         if (this.cannotAttack()) {
@@ -140,6 +185,10 @@ public abstract class AbstractPlayers extends AbstractCharacter
         }
     }
 
+    /**
+     * The player is attacked by an Enemy
+     * @param enemy enemy to attack
+     */
     @Override
     public void attackedByEnemy(IEnemy enemy) {
         enemy.attack(this);

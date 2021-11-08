@@ -2,10 +2,13 @@ package com.example.aventurasdemarcoyluis.characters.players;
 
 import com.example.aventurasdemarcoyluis.characters.enemies.Boo;
 
+/**
+ * Subclass of AbstractPlayers. Class that represent Luis
+ */
 public class Luis extends AbstractPlayers implements AttackedByBoo {
 
     /**
-     * Creates a new player
+     * Creates a new Luis Player
      *
      * @param ATK attack points
      * @param DEF defense points
@@ -17,6 +20,10 @@ public class Luis extends AbstractPlayers implements AttackedByBoo {
         super(ATK, DEF, HP, FP, LVL);
     }
 
+    /**
+     * Luis is attacked by a Boo
+     * @param boo a boo
+     */
     @Override
     public void attackedByBoo(Boo boo) {
         boo.attack(this);

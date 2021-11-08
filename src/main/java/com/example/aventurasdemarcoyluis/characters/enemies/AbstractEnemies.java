@@ -4,7 +4,9 @@ import com.example.aventurasdemarcoyluis.characters.AbstractCharacter;
 import com.example.aventurasdemarcoyluis.characters.players.IPlayer;
 
 /**
- * Abstract class for the Enemies in the game
+ * Subclass of AbstractCharacter. Abstract class for the Enemies in the game
+ *
+ * @author Isabella Meirone
  */
 public abstract class AbstractEnemies
         extends AbstractCharacter implements IEnemy {
@@ -21,7 +23,11 @@ public abstract class AbstractEnemies
         super(ATK, DEF, HP, LVL);
     }
 
-
+    /**
+     * The enemy attack a player, so receives damage
+     * If enemy is KO it cannot attack, so player receive 0 damage
+     * @param player player to attack
+     */
     @Override
     public void attack(IPlayer player) {
         if (this.isKO()) {

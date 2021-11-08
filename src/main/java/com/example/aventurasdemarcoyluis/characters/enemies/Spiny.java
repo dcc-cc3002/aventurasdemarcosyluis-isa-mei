@@ -7,7 +7,7 @@ import com.example.aventurasdemarcoyluis.characters.players.IPlayer;
  */
 public class Spiny extends AbstractEnemies implements AttackedByPlayers {
     /**
-     * Creates a new Enemy
+     * Creates a new Spiny Enemy
      *
      * @param ATK attack points
      * @param DEF defense points
@@ -18,12 +18,22 @@ public class Spiny extends AbstractEnemies implements AttackedByPlayers {
         super(ATK, DEF, HP, LVL);
     }
 
+    /**
+     * The Player attack with jump, but Spiny don´t receive damage and
+     * hurt the player
+     * @param player a Player
+     */
     @Override
     public void attackedByPlayerJump(IPlayer player) {
+        player.jump(this);
         receiveDamage(0);
         player.receiveDamage((int) (0.05* player.getHp()));
     }
 
+    /**
+     * Receives the attack hammer made by any Player
+     * @param player a player
+     */
     @Override
     public void attackedByPlayerHammer(IPlayer player) {
         receiveDamage(player.hammer(this));

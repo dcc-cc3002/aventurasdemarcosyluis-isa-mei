@@ -1,5 +1,10 @@
 package com.example.aventurasdemarcoyluis.characters;
 
+/**
+ * Abstract Class that represents the characters of the game.
+ *
+ * @author Isabella Meirone
+ */
 public abstract class AbstractCharacter implements ICharacter {
     private int atk;
     private int def;
@@ -27,7 +32,7 @@ public abstract class AbstractCharacter implements ICharacter {
      * Gives the Character's attack
      * @return atk
      */
-    private int getAtk() { return this.atk ; }
+    protected int getAtk() { return this.atk ; }
 
     /**
      * Gives the maximum value of heal points
@@ -50,16 +55,40 @@ public abstract class AbstractCharacter implements ICharacter {
     private String getStatus() { return this.status; }
 
     /**
-     * Modify the value of the Characters' hp
+     * Modify the value of the Characters' heal points
      * @param hp new hp
      */
-    private void setHp(int hp){
-        this.hp = hp;
+    protected void setHp(int hp){ this.hp = hp; }
+
+    /**
+     * Modify the value of the characters' max heal points
+     * @param maxHp new maxHp
+     */
+    protected void setMaxHp(int maxHp){
+        this.maxHp = maxHp;
     }
 
     /**
+     * Modifiy the value of the Characters' attack
+     * @param atk new attack
+     */
+    protected void setAtk(int atk) { this.atk = atk; }
+
+    /**
+     * Modify the value of the Characters' defense
+     * @param def new defense
+     */
+    protected void setDef(int def) { this.def = def; }
+
+    /**
+     * Modify the value of the Characters' level
+     * @param lvl new level
+     */
+    protected  void setLvl(int lvl) { this.lvl = lvl; }
+
+    /**
      * Modify the value of Hp making sure to stay in between the valid values
-     * If heal points are 0 then the player's status is changed
+     * If heal points are 0 then the Character's status is changed
      * @param hp new heal points
      */
     public void changeHp(int hp) {

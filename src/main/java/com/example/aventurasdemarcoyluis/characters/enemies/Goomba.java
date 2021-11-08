@@ -18,11 +18,19 @@ public class Goomba extends AbstractEnemies implements AttackedByPlayers {
         super(ATK, DEF, HP, LVL);
     }
 
+    /**
+     * Receive the attack jump made by any Player
+     * @param player a Player
+     */
     @Override
     public void attackedByPlayerJump(IPlayer player) {
         receiveDamage(player.jump(this));
     }
 
+    /**
+     * Receive the attack hammer made by any Player
+     * @param player a player
+     */
     @Override
     public void attackedByPlayerHammer(IPlayer player) {
         receiveDamage(player.hammer(this));

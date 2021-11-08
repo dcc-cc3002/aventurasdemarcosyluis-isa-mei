@@ -19,17 +19,31 @@ public class Boo extends AbstractEnemies implements AttackedByMarcos {
         super(ATK, DEF, HP, LVL);
     }
 
+    /**
+     * Boo only attacks Luis.
+     * Is an overloaded method
+     * @param luis a luis
+     */
     public void attack(Luis luis){
         super.attack(luis);
     }
 
+    /**
+     * Receives the attack jump made by Marcos
+     * @param marcos a marcos
+     */
     @Override
     public void attackedByMarcosJump(Marcos marcos) {
         receiveDamage(marcos.jump(this));
     }
 
+    /**
+     * Marcos attack with a hammer, but Boo don´t receives damage
+     * @param marcos a marcos
+     */
     @Override
     public void attackedByMarcosHammer(Marcos marcos) {
+        marcos.hammer(this);
         receiveDamage(0);
     }
 }

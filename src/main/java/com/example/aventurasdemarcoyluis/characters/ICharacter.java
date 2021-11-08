@@ -1,8 +1,8 @@
 package com.example.aventurasdemarcoyluis.characters;
 
 /**
- * Interface that implements damage, receiveDamage and getDfs
- * for Players class and AbstractEnemyClass
+ * Interface that implements damage, receiveDamage, getDfs and getHp
+ * for AbstractCharacter.
  */
 public interface ICharacter {
     /**
