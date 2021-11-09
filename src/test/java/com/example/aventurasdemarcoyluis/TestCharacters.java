@@ -1,3 +1,5 @@
+package com.example.aventurasdemarcoyluis;
+
 import com.example.aventurasdemarcoyluis.characters.enemies.Boo;
 import com.example.aventurasdemarcoyluis.characters.enemies.Goomba;
 import com.example.aventurasdemarcoyluis.characters.enemies.Spiny;
@@ -96,7 +98,7 @@ public class TestCharacters {
     public void TestBoo() {
         //Boo attacks Luis
         int actualHpLuis = testLuis.getHp();
-        testBoo.attack((testLuis));
+        testBoo.attack(testLuis);
         assertNotEquals(actualHpLuis, testLuis.getHp());
 
         //Marcos kill Boo

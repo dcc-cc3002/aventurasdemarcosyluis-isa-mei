@@ -190,7 +190,7 @@ public abstract class AbstractPlayers extends AbstractCharacter
      * @param enemy enemy to attack
      */
     @Override
-    public void attackedByEnemy(IEnemy enemy) {
+    public void attackedByEnemy(@NotNull IEnemy enemy) {
         enemy.attack(this);
     }
 }
