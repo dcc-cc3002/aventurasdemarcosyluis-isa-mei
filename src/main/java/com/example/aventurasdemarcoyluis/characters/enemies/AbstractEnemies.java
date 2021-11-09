@@ -29,13 +29,20 @@ public abstract class AbstractEnemies
      * @param player player to attack
      */
     @Override
-    public void attack(IPlayer player) {
+    public int attack(IPlayer player) {
         if (this.isKO()) {
-            player.receiveDamage(0);
+            return 0;
         }
         else{
             double k = 0.75;
-            player.receiveDamage(damage(player, k));
+            return damage(player, k);
         }
     }
+
+    @Override
+    public void attackTo(IPlayer player) {
+        player.attackedByEnemy(this);
+    }
+
+
 }

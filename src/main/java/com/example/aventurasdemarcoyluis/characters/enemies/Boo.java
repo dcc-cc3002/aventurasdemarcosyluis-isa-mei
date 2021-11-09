@@ -2,6 +2,7 @@ package com.example.aventurasdemarcoyluis.characters.enemies;
 
 import com.example.aventurasdemarcoyluis.characters.players.Luis;
 import com.example.aventurasdemarcoyluis.characters.players.Marcos;
+import org.jetbrains.annotations.NotNull;
 
 /**
  * Subclass of AbstractEnemies. Represents a Boo in the game
@@ -24,8 +25,8 @@ public class Boo extends AbstractEnemies implements AttackedByMarcos {
      * Is an overloaded method
      * @param luis a luis
      */
-    public void attack(Luis luis){
-        super.attack(luis);
+    public void attackTo(@NotNull Luis luis){
+        luis.attackedByBoo(this);
     }
 
     /**
@@ -33,7 +34,7 @@ public class Boo extends AbstractEnemies implements AttackedByMarcos {
      * @param marcos a marcos
      */
     @Override
-    public void attackedByMarcosJump(Marcos marcos) {
+    public void attackedByMarcosJump(@NotNull Marcos marcos) {
         receiveDamage(marcos.jump(this));
     }
 
@@ -42,7 +43,7 @@ public class Boo extends AbstractEnemies implements AttackedByMarcos {
      * @param marcos a marcos
      */
     @Override
-    public void attackedByMarcosHammer(Marcos marcos) {
+    public void attackedByMarcosHammer(@NotNull Marcos marcos) {
         marcos.hammer(this);
         receiveDamage(0);
     }

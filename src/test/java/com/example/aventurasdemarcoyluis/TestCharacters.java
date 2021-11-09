@@ -98,7 +98,7 @@ public class TestCharacters {
     public void TestBoo() {
         //Boo attacks Luis
         int actualHpLuis = testLuis.getHp();
-        testBoo.attack(testLuis);
+        testBoo.attackTo(testLuis);
         assertNotEquals(actualHpLuis, testLuis.getHp());
 
         //Marcos kill Boo
@@ -110,7 +110,7 @@ public class TestCharacters {
 
         //Boo is dead, so it cannot attack Luis
         int actualHpLuis2 = testLuis.getHp();
-        testBoo.attack((testLuis));
+        testBoo.attackTo((testLuis));
         assertEquals(actualHpLuis2, testLuis.getHp());
     }
 
@@ -126,7 +126,7 @@ public class TestCharacters {
 
         //Spiny attack a player
         int actualHpLuis = testLuis.getHp();
-        testSpiny.attack(testLuis);
+        testSpiny.attackTo(testLuis);
         assertNotEquals(actualHpLuis, testLuis.getHp());
 
         //Spiny can be attacked by the hammer
@@ -141,7 +141,7 @@ public class TestCharacters {
     public void TestGoomba() {
         //goomba attack a player
         int actualHpMarcos = testMarcos.getHp();
-        testGoomba.attack(testMarcos);
+        testGoomba.attackTo(testMarcos);
         assertNotEquals(actualHpMarcos,testMarcos.getHp());
 
         //Goomba can be attacked by jump and hammer

@@ -27,6 +27,6 @@ public class Luis extends AbstractPlayers implements AttackedByBoo {
      */
     @Override
     public void attackedByBoo(@NotNull Boo boo) {
-        boo.attack(this);
+        receiveDamage(boo.attack(this));
     }
 }

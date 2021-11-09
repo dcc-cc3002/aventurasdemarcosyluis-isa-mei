@@ -53,11 +53,10 @@ no puede atacar, y falso en caso contrario. Lunto con esto, al realizar el ataqu
 lo que se realiza con métodod *changeFp*. Si bien el este calculo se realiza en los métodos *jump*
 y *hammer*, los cuales son comprometidos por la interface IPlayer que los tiene y que es implementada
 en la clase, en sí para realizar el ataque, utilizando double dispatch, es con los métodos *attackJump*
-*attackHammmer*, según corresponda. Además, la clase implementa la interfaz AttackedByEnemy, para 
-referenciar que Marcos y Luis pueden ser atacados de forma normal por Goomba y Spiny. Asimismo, la clase 
-tiene como subclases Marcos y Luis, siendo una para cada personaje principal, lo  cual fue necesario dada
-la particularidad de Boo, por lo que Marcos se encarga de implementar el ataque a Boo haciendo overloding 
-de sus métodos de ataque, y Luis se encarga de poder recibir el ataque de Boo.
+*attackHammmer*, según corresponda. Asimismo, la clase tiene como subclases Marcos y Luis, siendo una 
+para cada personaje principal, lo  cual fue necesario dada la particularidad de Boo, por lo que Marcos 
+se encarga de implementar el ataque a Boo haciendo overloding de sus métodos de ataque, y Luis se encarga
+de poder recibir el ataque de Boo.
 
 Se implemento la clase Baul, la cual hace uso de una lista para poder almacenar los objetos Items, lo que facilita
 poder pregintar si está X objeto en la lista y poder removerlo al usarlo. Se decidió crear una clase en sí 

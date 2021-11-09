@@ -6,7 +6,7 @@ import com.example.aventurasdemarcoyluis.characters.players.IPlayer;
  * Interface that implements attackedByPlayerJump and attackedByPlayerHammer
  * for Goomba and Spiny
  */
-public interface AttackedByPlayers {
+public interface AttackedByPlayers{
 
     /**
      * To use double dispatch when a Player attack an enemy whit a jumo

@@ -15,7 +15,7 @@ import java.util.Random;
  *  @author Isabella Meirone
  */
 public abstract class AbstractPlayers extends AbstractCharacter
-        implements IPlayer, AttackedByEnemy {
+        implements IPlayer{
     private final Random random;
     private int fp;
     private int maxFp;
@@ -191,6 +191,6 @@ public abstract class AbstractPlayers extends AbstractCharacter
      */
     @Override
     public void attackedByEnemy(@NotNull IEnemy enemy) {
-        enemy.attack(this);
+        receiveDamage(enemy.attack(this));
     }
 }

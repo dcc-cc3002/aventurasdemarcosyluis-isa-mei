@@ -22,4 +22,10 @@ public interface IPlayer extends ICharacter {
      */
     int hammer(IEnemy enemy);
 
+    /**
+     * To use Double dispatch when a Player is attacked by an enemy
+     * @param enemy enemy attacking
+     */
+    void attackedByEnemy(IEnemy enemy);
+
 }
