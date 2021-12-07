@@ -1,12 +1,13 @@
 package com.example.aventurasdemarcoyluis.characters.enemies;
 
+import com.example.aventurasdemarcoyluis.characters.players.AttackedByGoombaandSpiny;
 import com.example.aventurasdemarcoyluis.characters.players.IPlayer;
 import org.jetbrains.annotations.NotNull;
 
 /**
  * Subclass of AbstractEnemies. Represents a Spiny in the game
  */
-public class Spiny extends AbstractEnemies implements AttackedByPlayers {
+public class Spiny extends AbstractEnemies implements AttackedByPlayers, GoombaAndSpiny {
     /**
      * Creates a new Spiny Enemy
      *
@@ -38,5 +39,16 @@ public class Spiny extends AbstractEnemies implements AttackedByPlayers {
     @Override
     public void attackedByPlayerHammer(@NotNull IPlayer player) {
         receiveDamage(player.hammer(this));
+    }
+
+    /**
+     * The enemy(Goomba or Spiny) attack a player, so receives damage
+     * Is an overloaded method
+     *
+     * @param player player to attack
+     */
+    @Override
+    public void attackTo(@NotNull AttackedByGoombaandSpiny player) {
+        player.attackedByEnemy(this);
     }
 }

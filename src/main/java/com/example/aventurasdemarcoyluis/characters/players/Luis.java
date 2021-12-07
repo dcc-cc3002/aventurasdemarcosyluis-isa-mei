@@ -1,12 +1,11 @@
 package com.example.aventurasdemarcoyluis.characters.players;
 
 import com.example.aventurasdemarcoyluis.characters.enemies.Boo;
-import org.jetbrains.annotations.NotNull;
 
 /**
  * Subclass of AbstractPlayers. Class that represent Luis
  */
-public class Luis extends AbstractPlayers implements AttackedByBoo {
+public class Luis extends AbstractPlayers implements AttackedByBoo{
 
     /**
      * Creates a new Luis Player
@@ -22,11 +21,13 @@ public class Luis extends AbstractPlayers implements AttackedByBoo {
     }
 
     /**
-     * Luis is attacked by a Boo
+     * To use Double dispatch when Luis is attacked by Boo
+     *
      * @param boo a boo
      */
     @Override
-    public void attackedByBoo(@NotNull Boo boo) {
+    public void attackedByBoo(Boo boo) {
         receiveDamage(boo.attack(this));
     }
+
 }

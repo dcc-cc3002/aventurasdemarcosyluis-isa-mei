@@ -9,7 +9,7 @@ import com.example.aventurasdemarcoyluis.characters.players.IPlayer;
 public interface AttackedByPlayers{
 
     /**
-     * To use double dispatch when a Player attack an enemy whit a jumo
+     * To use double dispatch when a Player attack an enemy whit a jump
      * @param player a Player
      */
     void attackedByPlayerJump(IPlayer player);

@@ -1,6 +1,6 @@
 package com.example.aventurasdemarcoyluis.items;
 
-import com.example.aventurasdemarcoyluis.characters.players.AbstractPlayers;
+import com.example.aventurasdemarcoyluis.characters.players.IPlayer;
 
 /**
  * Interface for the item, each one has to implement it
@@ -12,5 +12,5 @@ public interface IItem {
      * is going to use
      * @param player the one that uses an item
      */
-    void usage(AbstractPlayers player);
+    void usage(IPlayer player);
 }

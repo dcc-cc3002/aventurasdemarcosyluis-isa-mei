@@ -1,6 +1,7 @@
 package com.example.aventurasdemarcoyluis.characters.players;
 
 import com.example.aventurasdemarcoyluis.characters.*;
+import com.example.aventurasdemarcoyluis.characters.enemies.GoombaAndSpiny;
 import com.example.aventurasdemarcoyluis.characters.enemies.AttackedByPlayers;
 import com.example.aventurasdemarcoyluis.characters.enemies.IEnemy;
 import com.example.aventurasdemarcoyluis.items.Baul;
@@ -15,7 +16,7 @@ import java.util.Random;
  *  @author Isabella Meirone
  */
 public abstract class AbstractPlayers extends AbstractCharacter
-        implements IPlayer{
+        implements IPlayer, AttackedByGoombaandSpiny{
     private final Random random;
     private int fp;
     private int maxFp;
@@ -72,6 +73,7 @@ public abstract class AbstractPlayers extends AbstractCharacter
      * Gives the value of the fight points
      * @return fp
      */
+    @Override
     public int getFp(){
         return this.fp;
     }
@@ -100,6 +102,7 @@ public abstract class AbstractPlayers extends AbstractCharacter
      * Modify the value of Fp making sure to stay in the valid values
      * @param fp new fight points
      */
+    @Override
     public void changeFp(int fp) {
         int maxFp = this.getMaxFp();
         if (fp <= 0) {
@@ -186,11 +189,11 @@ public abstract class AbstractPlayers extends AbstractCharacter
     }
 
     /**
-     * The player is attacked by an Enemy
-     * @param enemy enemy to attack
+     * To use Double dispatch when a Player is attacked by an enemy(Goomba or Spiny)
+     * @param enemy enemy attacking
      */
     @Override
-    public void attackedByEnemy(@NotNull IEnemy enemy) {
+    public void attackedByEnemy(@NotNull GoombaAndSpiny enemy) {
         receiveDamage(enemy.attack(this));
     }
 }

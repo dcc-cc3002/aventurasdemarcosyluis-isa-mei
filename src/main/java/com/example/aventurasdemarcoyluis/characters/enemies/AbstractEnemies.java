@@ -23,11 +23,6 @@ public abstract class AbstractEnemies
         super(ATK, DEF, HP, LVL);
     }
 
-    /**
-     * The enemy attack a player, so receives damage
-     * If enemy is KO it cannot attack, so player receive 0 damage
-     * @param player player to attack
-     */
     @Override
     public int attack(IPlayer player) {
         if (this.isKO()) {
@@ -38,11 +33,5 @@ public abstract class AbstractEnemies
             return damage(player, k);
         }
     }
-
-    @Override
-    public void attackTo(IPlayer player) {
-        player.attackedByEnemy(this);
-    }
-
 
 }

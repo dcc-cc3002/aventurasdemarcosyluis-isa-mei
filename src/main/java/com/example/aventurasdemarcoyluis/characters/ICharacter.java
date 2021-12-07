@@ -31,4 +31,17 @@ public interface ICharacter {
      * @return hp
      */
     int getHp();
+
+    /**
+     * Gives the maximum value of heal points
+     * @return maxHp
+     */
+    int getMaxHp();
+
+    /**
+     * Modify the value of Hp making sure to stay in between the valid values
+     * If heal points are 0 then the Character's status is changed
+     * @param newHp new heal points
+     */
+    void changeHp(int newHp);
 }

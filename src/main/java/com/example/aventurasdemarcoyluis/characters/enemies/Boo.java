@@ -23,7 +23,7 @@ public class Boo extends AbstractEnemies implements AttackedByMarcos {
     /**
      * Boo only attacks Luis.
      * Is an overloaded method
-     * @param luis a luis
+     * @param luis luis to attack
      */
     public void attackTo(@NotNull Luis luis){
         luis.attackedByBoo(this);

@@ -38,6 +38,7 @@ public abstract class AbstractCharacter implements ICharacter {
      * Gives the maximum value of heal points
      * @return maxHp
      */
+    @Override
     public int getMaxHp(){
         return this.maxHp;
     }
@@ -69,7 +70,7 @@ public abstract class AbstractCharacter implements ICharacter {
     }
 
     /**
-     * Modifiy the value of the Characters' attack
+     * Modify the value of the Characters' attack
      * @param atk new attack
      */
     protected void setAtk(int atk) { this.atk = atk; }
@@ -91,6 +92,7 @@ public abstract class AbstractCharacter implements ICharacter {
      * If heal points are 0 then the Character's status is changed
      * @param hp new heal points
      */
+    @Override
     public void changeHp(int hp) {
         int maxHp = this.getMaxHp();
         if(hp <= 0){

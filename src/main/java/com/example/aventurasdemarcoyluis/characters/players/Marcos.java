@@ -37,4 +37,5 @@ public class Marcos extends AbstractPlayers {
     public void attackHammer(@NotNull Boo boo){
         boo.attackedByMarcosHammer(this);
     }
+
 }

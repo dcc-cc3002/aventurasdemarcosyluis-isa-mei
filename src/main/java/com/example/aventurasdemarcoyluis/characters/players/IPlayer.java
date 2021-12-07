@@ -23,9 +23,14 @@ public interface IPlayer extends ICharacter {
     int hammer(IEnemy enemy);
 
     /**
-     * To use Double dispatch when a Player is attacked by an enemy
-     * @param enemy enemy attacking
+     * Gives the value of the fight points
+     * @return fp
      */
-    void attackedByEnemy(IEnemy enemy);
+    int getFp();
 
+    /**
+     * Modify the value of Fp making sure to stay in the valid values
+     * @param newFp new fight points
+     */
+    void changeFp(int newFp);
 }
