@@ -1,10 +1,10 @@
 package com.example.aventurasdemarcoyluis;
 
-import com.example.aventurasdemarcoyluis.characters.enemies.Boo;
-import com.example.aventurasdemarcoyluis.characters.enemies.Goomba;
-import com.example.aventurasdemarcoyluis.characters.enemies.Spiny;
-import com.example.aventurasdemarcoyluis.characters.players.Luis;
-import com.example.aventurasdemarcoyluis.characters.players.Marcos;
+import com.example.aventurasdemarcoyluis.model.characters.enemies.Boo;
+import com.example.aventurasdemarcoyluis.model.characters.enemies.Goomba;
+import com.example.aventurasdemarcoyluis.model.characters.enemies.Spiny;
+import com.example.aventurasdemarcoyluis.model.characters.players.Luis;
+import com.example.aventurasdemarcoyluis.model.characters.players.Marcos;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -153,6 +153,15 @@ public class TestCharacters {
         int actualHPGoomba2 = testGoomba.getHp();
         testLuis.attackJump(testGoomba);
         assertNotEquals(actualHPGoomba2, testGoomba.getHp());
+    }
+
+    @Test
+    public void testToString() {
+        assertEquals("Marcos", testMarcos.toString());
+        assertEquals("Luis", testLuis.toString());
+        assertEquals("Goomba", testGoomba.toString());
+        assertEquals("Boo", testBoo.toString());
+        assertEquals("Spiny", testSpiny.toString());
     }
 
 }
