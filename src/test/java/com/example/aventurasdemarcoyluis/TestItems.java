@@ -1,11 +1,11 @@
 package com.example.aventurasdemarcoyluis;
 
-import com.example.aventurasdemarcoyluis.characters.players.Luis;
-import com.example.aventurasdemarcoyluis.characters.players.Marcos;
-import com.example.aventurasdemarcoyluis.items.Baul;
-import com.example.aventurasdemarcoyluis.items.HoneySyrup;
-import com.example.aventurasdemarcoyluis.items.IItem;
-import com.example.aventurasdemarcoyluis.items.RedMushroom;
+import com.example.aventurasdemarcoyluis.model.characters.players.Luis;
+import com.example.aventurasdemarcoyluis.model.characters.players.Marcos;
+import com.example.aventurasdemarcoyluis.model.item.Baul;
+import com.example.aventurasdemarcoyluis.model.item.HoneySyrup;
+import com.example.aventurasdemarcoyluis.model.item.IItem;
+import com.example.aventurasdemarcoyluis.model.item.RedMushroom;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
